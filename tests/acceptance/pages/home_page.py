@@ -1,5 +1,5 @@
+import time
 from selenium.webdriver.common.by import By
-
 from tests.acceptance.pages.base_page import BasePage
 
 
@@ -24,3 +24,8 @@ class Homepage(BasePage):
 
     def click_login_link(self):
         BasePage.click(self, Homepage.login_link)
+
+    def click_close_products(self, text):
+        BasePage.click_exact_text(self, text)
+        BasePage.click_close_button(self)
+        time.sleep(2)

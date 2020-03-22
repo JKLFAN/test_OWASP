@@ -18,6 +18,11 @@ def step_impl(context):
     Homepage(context.driver).click_dismiss_buttons()
 
 
+@step('I click the apple juice')
+def step_impl(context):
+    Homepage(context.driver).click_close_products()
+
+
 @step('I click on the account link')
 def step_impl(context):
     Homepage(context.driver).click_account_link()
@@ -45,6 +50,12 @@ def step_impl(context):
     RegisterPage(context.driver).assert_url()
 
 
-@when('I input data into the mandatory field')
+@step('I input data into the mandatory field')
 def step_impl(context):
     RegisterPage(context.driver).enter_details()
+
+
+@step('the page will show the "(.*)" product')
+def step_impl(context, product_name):
+    Homepage(context.driver).click_close_products(product_name)
+

@@ -15,6 +15,12 @@ class BasePage:
     def click(self, locator):
         self.driver.find_element(*locator).click()
 
+    def click_close_button(self):
+        self.driver.find_element_by_xpath("//*[contains(text(),'Close')]").click()
+
+    def click_exact_text(self, text):
+        self.driver.find_element_by_xpath("//*[contains(text(),'" + text + "')]").click()
+
     # GETS
     def get_current_url(self):
         current_url = self.driver.current_url
@@ -23,6 +29,9 @@ class BasePage:
     def get_header(self):
         header = self.driver.find_element_by_tag_name('h1').text
         return header
+
+    def get_text(self, classname):
+        text = self.driver.find_element_by_class_name(classname).text
 
     # INPUT TEXT
     def input_text(self, locator, content):
